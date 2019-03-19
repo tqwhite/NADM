@@ -9,6 +9,7 @@
 	<xs:include schemaLocation="../../SIFglobalBaseTypes.xsd" />
 	<xs:include schemaLocation="../../SIFglobalCommonTypes.xsd" />
 	<xs:include schemaLocation="../../Composite/SIFNAxPressCommonTypes.xsd" />
+	<xs:include schemaLocation="../../Report/SIFNAxSRECommonTypes.xsd" />
 	
 	<xs:simpleType name="iepCommonStudentRefIdPointerType">
 		<xs:annotation>
@@ -40,9 +41,21 @@
 		</xs:annotation>
 		<xs:restriction base="gUUIDType"/>
 	</xs:simpleType>
+	<xs:simpleType name="iepCommonSchoolRefIdPointerType">
+		<xs:annotation>
+			<xs:documentation>A refId that refers to an instance of xSchoolType object. The RefId points to the object instance. </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="gUUIDType"/>
+	</xs:simpleType>
 	<xs:simpleType name="iepCommonOrganizationRefIdPointerType">
 		<xs:annotation>
 			<xs:documentation>A refId that refers to an instance of xOrganization object. The RefId points to the object instance. </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="gUUIDType"/>
+	</xs:simpleType>
+	<xs:simpleType name="iepCommonPdfRefIdPointerType">
+		<xs:annotation>
+			<xs:documentation>A refId that refers to a gPdfFileType. The RefId points to the object instance. </xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="gUUIDType"/>
 	</xs:simpleType>
@@ -857,4 +870,26 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
+	
+	<xs:complexType name='iepCommonIdeaDisabilityCodeListType'>
+				<xs:annotation>
+					<xs:appinfo>
+						<elementName>
+							Disability Category List
+						</elementName>
+						<sifChar>O</sifChar>
+						<cedsId>000218</cedsId>
+						<cedsURL>https://ceds.ed.gov/element/000218/</cedsURL>
+					</xs:appinfo>
+					<xs:documentation>
+						Categories of Disability Under IDEA
+					</xs:documentation>
+				</xs:annotation>
+				<xs:sequence>
+					<xs:element name="disabilityCode" type="xDisabilityType" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+	</xs:complexType>
+	
+	
 </xs:schema>
